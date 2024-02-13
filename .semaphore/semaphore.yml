@@ -33,3 +33,17 @@ blocks:
           commands:
             - cat docker-compose.ci.yml | envsubst | tee docker-compose.yml
             - docker-compose run addressbook npm test
+  - name: Test
+    task:
+      secrets:
+        - name: docker_hub
+        - name: dockerhub
+      prologue:
+        commands:
+          - checkout
+          - 'echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin'
+          - cat docker-compose.ci.yml | envsubst | tee docker-compose.yml
+      jobs:
+        - name: Integration Test
+          commands:
+            - docker-compose run addressbook npm test
