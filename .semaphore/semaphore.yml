@@ -18,7 +18,7 @@ blocks:
             - 'docker tag "${DOCKER_USERNAME}/addressbook:latest" "${DOCKER_USERNAME}/addressbook:$SEMAPHORE_WORKFLOW_ID"'
             - 'docker push "${DOCKER_USERNAME}/addressbook:$SEMAPHORE_WORKFLOW_ID"'
       secrets:
-        - name: dockerhub
+        - name: docker_hub
   - name: Test
     task:
       secrets:
