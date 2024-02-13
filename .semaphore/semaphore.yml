@@ -33,7 +33,7 @@ blocks:
           commands:
             - cat docker-compose.ci.yml | envsubst | tee docker-compose.yml
             - docker-compose run addressbook npm test
-  - name: Test
+  - name: Test Again
     task:
       secrets:
         - name: dockerhub
