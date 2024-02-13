@@ -22,6 +22,7 @@ blocks:
   - name: Test
     task:
       secrets:
+        - name: docker_hub
         - name: dockerhub
       prologue:
         commands:
